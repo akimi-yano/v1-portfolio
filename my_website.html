@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>my_website</title>
+    <link href="https://fonts.googleapis.com/css?family=Chewy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="my_website.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One|Work+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/c3e68e9bd6.js" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+    <div class="backtotop">
+        <button class="invisible-button"><i class="fas fa-home"></i></button></i>
+    </div>
+    <div class="cover">
+        
+        <div class="header">
+            <div class="title_line">
+                <h2>Akimi Yano</h2>
+                <h2>Software Engineer</h2>
+            </div>
+            <button class="nav">Home</button>
+            <button class="nav">About Me</button>
+            <button class="nav">Skills</button>
+            <button class="nav">Projects</button>
+            <button id="contact-link" class="nav">Contact</button>
+        </div>
+        <div class="first_impression">
+            <div class="img-container">
+                <img src="img_akimi.jpg" alt="profile_image" class="profile_img">
+                <div class="outerring">
+                    <i class="far fa-star ball"></i>
+                    <i class="far fa-heart ball2"></i>
+                </div>
+            </div>
+            <div class="follow_you">
+                <h1 class="quote">『自分が思い描いたものを創れるようになりたい。』 <br>"I want to be able to create anything I can imagine."
+                </h1>
+            </div>
+        </div>
+
+    </div>
+    <div class="main">
+        <div class="summary">
+                <h2>About me</h2>
+                
+                <h3>Hello, my name is Akimi, and I am a Software Engineer Silicon Valley, California. I love to code. In my spare time, I enjoy going <span
+                        class="rock_climbing">rock climbing</span> and traveling to learn new <span
+                        class="foreign_languages">foreign languages</span>.</h3>
+            </div>
+            <div class="climbing">
+                <p>Climbing in progress ...</p>
+                <img src="climbing_graph.jpg" alt="climbing_graph">
+
+            </div>
+            <div class="languages">
+                <p>Language learning in progress ...</p>
+                <img src="languages_map.png" alt="languages_map">
+        </div>
+    </div>
+    <div class="past_experience">
+        <!-- <i class="fas fa-laptop"></i> -->
+        <div class="images">
+            <img src="./images/0.jpg" alt="" id="pic0" class="carousel">
+            <img src="./images/1.jpg" alt="" id="pic1" class="carousel hidden">
+            <img src="./images/2.jpg" alt="" id="pic2" class="carousel hidden">
+            <img src="./images/3.jpg" alt="" id="pic3" class="carousel hidden">
+            <img src="./images/4.jpg" alt="" id="pic4" class="carousel hidden">
+            <img src="./images/5.jpg" alt="" id="pic5" class="carousel hidden">
+            <img src="./images/6.jpg" alt="" id="pic6" class="carousel hidden">
+            <img src="./images/7.jpg" alt="" id="pic7" class="carousel hidden">
+            <div class="markers">
+                <div id="mark0" class="marker marked"></div>
+                <div id="mark1" class="marker"></div>
+                <div id="mark2" class="marker"></div>
+                <div id="mark3" class="marker"></div>
+                <div id="mark4" class="marker"></div>
+                <div id="mark5" class="marker"></div>
+                <div id="mark6" class="marker"></div>
+                <div id="mark7" class="marker"></div>
+            </div>
+        </div>
+        <div class="previous">
+            <h2>My career as a Software Engineer</h2>
+            <h3>As far as I can remember, I have always admired the potential for technology and have been interested in
+                learning more about it. After moving to Silicon Valley, I had the oppportunity to meet and speak with a
+                number of tech professionals, and <span>I got inspired by their ability to turn ideas into reality.</span> At the
+                same time, I started confirming the possibility of myself doing the same thing: creating things I could
+                only imagine.</h3>
+        </div>
+    </div>    
+    <div class="project_experience">
+        <div class="past_project">
+            <h2>My first project</h2>
+            <h3>Eventually, I started taking coding classes online and in person and made my <span
+                    class="my_first_project">first project</span> using Python. It was a data analysis project I
+                completed by pulling data from a rock climbing training system. <span class="life_change">It was a life changing experience.</span> I
+                decided to become a Software Engineer and make more of my dream ideas come true.</h3>
+        </div>
+        <div class="first_project">
+            <img class="first_project_pic" src="my_first_project.png" alt="my_first_project_img">
+            <p class="description">Used Python to find out which climbing problems have the highest possibility of being
+                    completed for each difficulty level in climbing training system called "MoonBoard".</p>
+        </div>
+            
+    </div>
+
+    <div class="now">
+        <div class="current">
+            <div class="bootcamp">  
+            <h2>My life these days</h2>
+            <h3>Hey, I am currently attending an intensive coding bootcamp at Coding Dojo. Here is my <span
+                    class="progress_matrix">progress matrix</span>:</h3>
+            </div>
+            <div class="progress">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="right-align-me"># of weeks in bootcamps:</td class="right-align-me">
+                            <td>2 Weeks</td>
+                        </tr>
+                        <tr>
+                            <td class="right-align-me"># of hours coded:</td>
+                            <td>Too many</td>
+                        </tr>
+                        <tr>
+                            <td class="right-align-me"># of lines committed on Github:</td>
+                            <td>Lost Count</td>
+                        </tr>
+                        <tr>
+                            <td class="right-align-me">Aquired skills:</td>
+                            <td>$(jQuery), MySQL, JavaScript, Python:, CSS, HTML</td>
+                        </tr>
+                        <tr>
+                            <td class="right-align-me"># of coffees consumed:</td>
+                            <td>Over 5 <i class="fas fa-mug-hot"></i> Per Day</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="from_now_on">
+        <div class="future">
+            <div class="goal">
+                <h2>Projects</h2>
+                <h3>By the end of the bootcamp, I would like to launch my <span class="working_projects">working
+                        projects</span>.</h3>
+            </div>
+    </div>
+    <div class="project_ex">
+            <div class="portofolio">
+                <div class="project">
+                    <h4>Python Stack</h4>
+                    <div class="wireframe">
+                        <i class="fas fa-toolbox"></i>
+                    </div>
+                </div>
+                <div class="project">
+                    <h4>Mean Stack</h4>
+                    <div class="wireframe">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h4>Java Stack</h4>
+                    <div class="wireframe">
+                        <i class="fas fa-truck-pickup"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="footer">
+            <p>akimi.mimi.yano@gmail.com | +1.831.970.6237</p>
+            <div class="contact_info">
+                <img src="./Portfolio_images/linkedin.png" alt="linkedin_icon" class="small_icon">
+                <img src="./Portfolio_images/github.png" alt="github_icon" class="small_icon">
+            </div>
+
+    </div>
+    
+
+    <script>
+        var max = 7
+        var current = 0
+        previous = 7
+        for(let i = 1; i < 8; i++) {
+            $('#pic' + i).hide()
+        }
+        setInterval(function(){
+            if(current == 7) {
+                current = 0
+                previous = 7
+            } else {
+                current += 1
+                previous = current - 1
+            }
+            $('#pic' + previous).hide()
+            $('#pic' + current).fadeIn(800)
+            $('#mark' + current).addClass("marked")
+            $('#mark' + previous).removeClass("marked");
+
+        },5800)
+        var climbing_info = false;
+        if (climbing_info == false) {
+            $('.climbing').hide();
+        };
+        $('.rock_climbing').hover(function () {
+            $('.climbing').toggle();
+        });
+
+        var language_info = false;
+        if (language_info == false) {
+            $('.languages').hide();
+        }
+        $('.foreign_languages').hover(function () {
+            $('.languages').toggle();
+        })
+
+        var first_project_info = false;
+        if (first_project_info == false) {
+            $('.first_project').hide();
+        };
+        if (first_project_info == false) {
+            $('.description').hide();
+        };
+
+        $('.my_first_project').hover(function () {
+            $('.first_project').fadeIn();
+            $('.description').fadeIn();
+        });
+
+
+        var progress_info = false;
+        if (progress_info == false) {
+            $('.progress').hide();
+        }
+        $('.progress_matrix').hover(function () {
+            $('.progress').slideDown();
+        })
+
+        var project_info = false;
+        if (project_info == false) {
+            $('.project').hide();
+        }
+        $('.working_projects').hover(function () {
+            $('.project').fadeIn();
+        })
+        $('#contact-link').click(function (e) {
+            // e.preventDefault();
+            window.scrollTo({
+                top: $('#contact').offset().top,
+                left: 0,
+                behavior: 'smooth'
+            })
+        })
+        $('.invisible-button').click(function() {
+            window.scrollTo({
+                top:0,
+                left:0,
+                behavior:'smooth'
+            })
+        })
+
+    </script>
+
+
+</body>
+
+</html>
