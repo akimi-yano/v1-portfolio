@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c3e68e9bd6.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            color: black;
+            font-size: 20px;
+            margin: 5vw;
+            vertical-align: middle;
+            text-align: center;
+            display: block;
+        }
+
+        img {
+            display: block;
+            vertical-align: top;
+            width: 32vw;
+            /* height: 37vw; */
+            margin: auto;
+        }
+
+
+        .side_by_side {
+            display: none;
+        }
+
+        .screen {
+            width: 63vw;
+            height: 180px;
+            padding: 0px;
+            border: 1px solid black;
+            display: block;
+            vertical-align: middle;
+            background-color: white;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .frame {
+            width: 63.5vw;
+            height: 181px;
+            padding: 5vw 8vw;
+            margin: 0 0 5vw 0;
+            border: 1px solid black;
+            display: block;
+            vertical-align: middle;
+            background-color: lightgray;
+            border-radius: 5px;
+        }
+
+        .console {
+            background-color: rgb(194, 44, 67);
+            width: 80vw;
+            border-radius: 5px;
+            height: 439px;
+            margin: 0vw 5vw 5vw 5vw;
+            padding: 5vw;
+            display: inline-block;
+        }
+
+        .circle {
+            background-color: black;
+            font-size: 50px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid black;
+            font-size: 10px;
+            color: white;
+        }
+
+        .alert {
+            font-family: 'Press Start 2P', cursive;
+            color: black;
+            margin: 1px;
+            font-size: 10px;
+        }
+
+        .message {
+            display: block;
+            border: 5px double black;
+            position: absolute;
+            bottom: 0;
+            width: 97%;
+        }
+
+        .message-flex {
+            display: flex;
+            justify-content: space-around;
+        }
+
+
+        .count_title {
+            font-family: 'Press Start 2P', cursive;
+            color: black;
+            font-size: 10px;
+        }
+
+        #counter {
+            display: inline-block;
+            font-family: 'Press Start 2P', cursive;
+            color: black;
+            font-size: 24px;
+            height: 24px;
+        }
+
+        #test {
+            color: black;
+        }
+
+        .hidden {
+            filter: brightness(0);
+        }
+        .button-flex {
+            display:flex;
+            justify-content: space-around;
+        }
+        .d-pad {
+            width: 150px;
+            display: inline-block;
+            vertical-align: top;
+
+        }
+
+        .d-pad button {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            vertical-align: top;
+            font-size: large;
+        }
+
+        .tap-buttons {
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            height: 50px;
+            width: 100px;
+        }
+
+        .random,
+        .show {
+            position: absolute;
+        }
+
+        .show {
+            right: 0;
+            top: 0;
+        }
+
+        .random {
+            right: 40px;
+            top: 40px;
+        }
+
+        .up,
+        .down,
+        .left,
+        .right {
+            color: white;
+            background-color: black;
+            border-radius: 5px;
+            border-color: black;
+        }
+        .disabled-button {
+            visibility: hidden;
+        }
+        @media (min-width: 400px) {
+            .console {
+                width: 320px;
+                padding: 20px;
+                margin: 0px 20px 20px 20px;
+            }
+
+            .frame {
+                width: 254px;
+                padding: 20px 32px;
+            }
+
+            .screen {
+                width: 252px;
+            }
+
+            img {
+                width: 128px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Who's That Pokémon?</h1>
+    <div class="content">
+        <div class="console">
+            <div class="frame">
+                <div class="screen">
+                    <img src="" alt="" class="hidden">
+                    <div class="message-flex">
+                        <div class="message">
+                            <h2 class="alert">Wild pokemon appeared!</h2>
+                            <div class="side_by_side">
+                                <h2 class="count_title name">Name:</h2>
+                                <h2 class="count_title types">Types:</h2>
+                                <h2 class="count_title weight">Weight:</h2>
+                                <h2 class="count_title height">Height:</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="button-flex">
+                <div class="d-pad">
+                    <button class="disabled-button" disabled></button>
+                    <button class="up">^</button>
+                    <button class="disabled-button" disabled></button>
+                    <button class="left">
+                        <</button> <button class="disabled-button" disabled>
+                    </button>
+                    <button class="right">></button>
+                    <button class="disabled-button" disabled></button>
+                    <button class="down">v</button>
+                    <button class="disabled-button" disabled></button>
+                </div>
+                <div class="tap-buttons">
+                    <button class="circle random">B</button>
+                    <button class="circle show">A</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var name;
+        var sprites;
+        var types;
+        var weight;
+        var height;
+        var typeArray;
+        var api = "https://pokeapi.co/api/v2/pokemon/";
+        function randomizer(min, max) {
+            return Math.floor(Math.random() * (max - min) + min)
+        }
+        
+        $('.random').click(function () {
+            $('img').addClass("hidden");
+            $('.side_by_side').hide();
+            $.get(api + randomizer(1, 151), function (data) {
+                console.log(data);
+                name = data.name[0].toUpperCase() + data.name.slice(1);
+                sprites = data.sprites;
+                types = data.types;
+                weight = data.weight;
+                height = data.height;
+                var typeArray = []
+                for (var i = 0; i < types.length; i++) {
+                    var title = types[i].type.name
+                    typeArray.push(title[0].toUpperCase() + title.slice(1))
+                }
+                types = typeArray.join(", ")
+                $('img').attr('src', sprites.front_default);
+                $('.name').text("Name: " + name)
+                $('.types').text("Types: " + types);
+                $('.height').text("Height: " + height);
+                $('.weight').text("Weight: " + weight);
+                $('.alert').show();
+
+            })
+        })
+        $('.random').trigger("click");
+        $('.show').click(function () {
+            $('img').removeClass("hidden");
+            $('.side_by_side').show();
+            $('.alert').hide();
+        })
+        var dictionary = {
+            up: "back_default",
+            left: "back_shiny",
+            right: "front_shiny",
+            down: "front_default"
+        }
+        $('.d-pad button').click(function () {
+            console.log(sprites)
+            $('img').attr('src', sprites[dictionary[$(this).attr("class")]]);
+        })
+
+        // up = back_default
+        // left = back_shiny
+        // right = front_shiny
+        // bottom = front_default
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     var number_poke = 151
+//         for (var i=1; i>number_poke; i++){
+//             $.get("https://pokeapi.co/api/v2/pokemon/" + i + "/", function(res){
+//             var html_string = ""
+//             // var name_poke = res.name
+//             html_string+="<p>" + res.name + "</P>"
+//             // var type1_poke = res.types[types.length-1].type.name
+//             html_string+="<p>" + res.types[types.length-1].type.name + "</P>"
+//             // var type2_poke = res.types[0].type.name
+//             html_string+="<p>" + res.types[0].type.name + "</P>"
+//             // var height_poke = res.heigh
+//             html_string+="<p>" + res.heigh + "</P>"
+//             // var weight_poke = res.weight
+//             html_string+="<p>" + res.weight + "</P>"
+//             $('#test').html(html_string)
+//             }) 
+//         }
+
+
+
+
+// //clikcing the button to show the details 
+
+//         $('.testing').click(function(){
+//          var request ="http://pokeapi.co/api/v2/pokemon/";
+//          request += ($(this).attr('id') + '/')
+//          $.get(request, function(res){
+//              var html_str =""
+
+//             html_str+="<h1>" +res.name+ "</h1>";
+
+//             html_str+="<h4>Order</h4>";
+//             html_str+="<p>" +res.order+ "</p>";
+
+//             html_str+="<h4>ID</h4>";
+//             html_str+="<p>" +res.id+ "</p>";
+
+//             html_str+="<h4>Types</h4>";
+//             html_str+="<ul>"
+//             for (var i=0; i<res.types.length; i++){
+//                 html_str+="<li>" + res.types[i].type.name + "</li>";
+//             }
+//             html_str+="</ul>";
+
+//             html_str+="<h4>Height</h4>";
+//             html_str+="<p>" + res.height + "</p>";
+
+//             html_str+="<h4>Weight</h4>"
+//             html_str+="<p>" + res.weight + "</p>";
+
+//             $('#focus').html(html_str);
+
+//          })
+//     });
+
+
+
+
+
+
+
+
+//     // var total_num_pokemon = 151;
+//     // for (var i = 1; i< total_num_pokemon +1; i++){
+
+//     // }
+
+
+
+//     // var total_num_of_pokemon = 151;
+//     // for(let t = 1; t < total_num_of_pokemon + 1; t++) {
+//     //     $.get("https://pokeapi.co/api/v2/pokemon/"+t+"/",function(res) {
+//     //         $('#img'+k).attr({'src_pokemon': data.sprites.front_default,'name_pokemon': data.name,'type1': data.types[data.types.length-1].type.name,'type2': data.types.length == 2 ? data.types[0].type.name : 0, 'hight_pokemon': data.height,'weight': data.weight});
+//     //     });
+//     // };
+//     // https://pokeapi.co/api/v2/pokemon/1/.sprites.front_default
+
+
+//     var number = 1;
+//     var current_number = 1;
+//     document.getElementById("counter").innerHTML = current_number;
+//     $('.try').click(function(){
+//         if(number == 151){
+//             number = 1
+//             $('img').attr("src", "http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" + number + ".png")
+//             current_number = number
+//             document.getElementById("counter").innerHTML = current_number;
+//         }
+//         else{
+//         number+=1
+//         // $('.message').hide();
+//         $('img').attr("src", "http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" + number + ".png")
+//         current_number = number
+//         document.getElementById("counter").innerHTML = current_number;
+//         // $('.message').show();
+//         }
+
+//     })
+
+
+//     // random buttom 
+//     $('.random').click(function(){
+//     var random_number = Math.floor(Math.random() * (152-1)) + 1;
+//     $('img').attr("src", "http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" + random_number + ".png")
+//     current_number = random_number
+//     document.getElementById("counter").innerHTML = current_number;
+//     });
+
+//     // document.getElementById("counter").innerHTML = current_number;
+
+
+
+
+
+//     // <div id="pokemon"></div>
+//     // <div id="focus"></div>
+
+//     // <script>
+//     // var pokemon_img ="";
+//     // for (var number=1; number<152; number+=1){
+//     //     pokemon_img+='<img id=' + number + ' ' + 'src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/' + number + '.png">'
+//     // };
+//     // $('#pokemon').html(pokemon_img);
+
+
+//     // $('img').click(function(){
+//     //      var request ="http://pokeapi.co/api/v2/pokemon/";
+//     //      request += ($(this).attr('id') + '/')
+//     //      $.get(request, function(res){
+//     //          var html_str =""
+
+//     //         html_str+="<h1>" +res.name+ "</h1>";
+
+//     //         html_str+="<h4>Order</h4>";
+//     //         html_str+="<p>" +res.order+ "</p>";
+
+//     //         html_str+="<h4>ID</h4>";
+//     //         html_str+="<p>" +res.id+ "</p>";
+
+//     //         html_str+="<h4>Types</h4>";
+//     //         html_str+="<ul>"
+//     //         for (var i=0; i<res.types.length; i++){
+//     //             html_str+="<li>" + res.types[i].type.name + "</li>";
+//     //         }
+//     //         html_str+="</ul>";
+
+//     //         html_str+="<h4>Height</h4>";
+//     //         html_str+="<p>" + res.height + "</p>";
+
+//     //         html_str+="<h4>Weight</h4>"
+//     //         html_str+="<p>" + res.weight + "</p>";
+
+//     //         $('#focus').html(html_str);
+
+//     //      })
+//     // });
+
+//     // // 1/
+
+
+
+//     // //     var request ="http://pokeapi.co/api/v2/pokemon/";
+//     // //     request += ($(this).attr('id') + '/')
+
+//     // //     var number_poke = 151
+//     // //     for (var i=1; i>number_poke; i++){
+//     // //         $.get("http://pokeapi.co/api/v2/pokemon/" + i + "/", function(res){
+//     // //         // var name_poke = res.name
+//     // //         console.log(res,name)
+//     // //         // var type1_poke = res.types[types.length-1].type.name
+//     // //         console.log(res.types[types.length-1].type.name)
+//     // //         // var type2_poke = res.types[0].type.name
+//     // //         console.log(res.types[0].type.name)
+//     // //         // var height_poke = res.heigh
+//     // //         console.log(res.heigh)
+//     // //         // var weight_poke = res.weight
+//     // //         console.log(res.weight)
+//     // //     }) 
+
+
+
+
+
+
+
+
+//             // $('#focus').html(html_str);
+
+
+
+
+    </script>
+</body>
+
+</html>
