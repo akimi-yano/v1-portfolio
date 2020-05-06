@@ -1,4 +1,4 @@
 # My Portfolio 
-## Deployed: github.io/akimi-yano
+## Deployed: akimi-yano.github.io/v1-portfolio
 
 version 1
